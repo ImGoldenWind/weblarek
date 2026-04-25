@@ -17,7 +17,7 @@ export interface IProduct {
 export type TPayment = 'online' | 'cash';
 
 export interface IBuyer {
-    payment: TPayment;
+    payment: TPayment | '';
     email: string;
     phone: string;
     address: string;

@@ -49,12 +49,10 @@ const buyer = new BuyerData();
 
 console.log('Ошибки валидации (все поля пусты):', buyer.validate());
 
-buyer.setField('payment', 'online');
-buyer.setField('address', 'ул. Пушкина, д. 1');
+buyer.setField({ payment: 'online', address: 'ул. Пушкина, д. 1' });
 console.log('Ошибки после заполнения payment и address:', buyer.validate());
 
-buyer.setField('phone', '+79001234567');
-buyer.setField('email', 'test@example.com');
+buyer.setField({ phone: '+79001234567', email: 'test@example.com' });
 console.log('Ошибки после заполнения всех полей:', buyer.validate());
 
 console.log('Данные покупателя:', buyer.getData());
