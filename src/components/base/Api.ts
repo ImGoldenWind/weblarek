@@ -1,6 +1,6 @@
-type ApiPostMethods = 'POST' | 'PUT' | 'DELETE';
+import { ApiPostMethods, IApi } from '../../types';
 
-export class Api {
+export class Api implements IApi {
     readonly baseUrl: string;
     protected options: RequestInit;
 

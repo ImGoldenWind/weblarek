@@ -1,10 +1,13 @@
 import { IBuyer, TPayment } from '../../types';
+import { IEvents } from '../base/Events';
 
 export class BuyerData {
     protected _payment: TPayment | '' = '';
     protected _address: string = '';
     protected _phone: string = '';
     protected _email: string = '';
+
+    constructor(protected events: IEvents) {}
 
     setField(data: Partial<IBuyer>): void {
         if (data.payment !== undefined) {
@@ -19,6 +22,7 @@ export class BuyerData {
         if (data.address !== undefined) {
             this._address = data.address;
         }
+        this.events.emit('buyer:changed');
     }
 
     getData(): IBuyer {
@@ -35,6 +39,7 @@ export class BuyerData {
         this._address = '';
         this._phone = '';
         this._email = '';
+        this.events.emit('buyer:changed');
     }
 
     validate(): Partial<Record<keyof IBuyer, string>> {

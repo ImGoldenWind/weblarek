@@ -37,3 +37,16 @@ export interface IOrderResponse {
     id: string;
     total: number;
 }
+
+export interface ICardActions {
+    onClick?: () => void;
+}
+
+export interface ICardBasketActions {
+    onDelete?: () => void;
+}
+
+export interface IFormState {
+    valid: boolean;
+    errors: string;
+}
