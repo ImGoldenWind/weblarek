@@ -20,4 +20,5 @@ export const CURRENCY_LABEL = 'синапсов';
 export const PRICELESS_LABEL = 'Бесценно';
 export const BUTTON_ADD_TO_BASKET = 'В корзину';
 export const BUTTON_REMOVE_FROM_BASKET = 'Убрать из корзины';
+export const BUTTON_UNAVAILABLE = 'Недоступно';
 

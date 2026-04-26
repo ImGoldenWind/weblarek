@@ -1,5 +1,4 @@
 import { Component } from '../base/Component';
-import { IEvents } from '../base/Events';
 
 interface IModal {
     content: HTMLElement;
@@ -9,7 +8,7 @@ export class Modal extends Component<IModal> {
     protected _content: HTMLElement;
     protected _closeButton: HTMLButtonElement;
 
-    constructor(container: HTMLElement, protected events: IEvents) {
+    constructor(container: HTMLElement) {
         super(container);
         this._content = container.querySelector('.modal__content')!;
         this._closeButton = container.querySelector('.modal__close')!;
@@ -29,13 +28,11 @@ export class Modal extends Component<IModal> {
 
     open(): void {
         this.container.classList.add('modal_active');
-        this.events.emit('modal:open');
     }
 
     close(): void {
         this.container.classList.remove('modal_active');
         this._content.replaceChildren();
-        this.events.emit('modal:close');
     }
 
     render(data: { content: HTMLElement }): HTMLElement {
